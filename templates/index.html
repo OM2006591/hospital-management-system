@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>🏥 Hospital Management System</h1>
+
+<!-- LOGOUT BUTTON -->
+<button onclick="logout()" style="position:fixed; top:15px; right:15px; background:red; color:white;">
+    Logout
+</button>
+
+<div class="container">
+
+    <!-- ========================= -->
+    <!-- ADD PATIENT -->
+    <!-- ========================= -->
+    <div class="card">
+        <h2>➕ Add Patient</h2>
+
+        <input type="text" id="name" placeholder="Name">
+        <input type="number" id="age" placeholder="Age">
+        <input type="text" id="gender" placeholder="Gender">
+        <input type="email" id="email" placeholder="Email"> <!-- ✅ ADDED -->
+
+        <button onclick="addPatient()">Add Patient</button>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- VIEW PATIENTS -->
+    <!-- ========================= -->
+    <div class="card">
+        <h2>📋 Patients</h2>
+
+        <button onclick="getPatients()">Load Patients</button>
+        <ul id="patientsList"></ul>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- DELETE PATIENT -->
+    <!-- ========================= -->
+    <div class="card">
+        <h2>🗑️ Delete Patient</h2>
+
+        <input type="number" id="deleteId" placeholder="Patient ID">
+        <button onclick="deletePatient()">Delete</button>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- BOOK APPOINTMENT -->
+    <!-- ========================= -->
+    <div class="card">
+        <h2>📅 Book Appointment</h2>
+
+        <input type="number" id="patient_id" placeholder="Patient ID">
+        <input type="number" id="doctor_id" placeholder="Doctor ID">
+
+        <select id="condition">
+            <option value="critical">Critical</option>
+            <option value="moderate">Moderate</option>
+            <option value="normal">Normal</option>
+        </select>
+
+        <input type="date" id="appointment_date">
+        <input type="time" id="appointment_time">
+
+        <button onclick="bookAppointment()">Book Appointment</button>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- VIEW APPOINTMENTS -->
+    <!-- ========================= -->
+    <div class="card">
+        <h2>📊 Appointments</h2>
+
+        <button onclick="getAppointments()">Load Appointments</button>
+
+        <p id="totalAppointments"></p>
+
+        <table id="appointmentsTable"></table>
+    </div>
+
+</div>
+
+<!-- SCRIPTS -->
+<script src="/static/script.js"></script>
+
+<script>
+function logout() {
+    window.location.href = "http://127.0.0.1:5000/logout";
+}
+</script>
+
+</body>
+</html>
